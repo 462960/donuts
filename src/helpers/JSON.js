@@ -1,8 +1,7 @@
 const JSON = [
   {
     id: "0001",
-    type: "donut",
-    name: "Cake",
+    type: "Cake",
     ppu: 0.55,
     batters: {
       batter: [
@@ -24,8 +23,7 @@ const JSON = [
   },
   {
     id: "0002",
-    type: "donut",
-    name: "Raised",
+    type: "Raised",
     ppu: 0.55,
     batters: {
       batter: [{ id: "1001", type: "Regular" }]
@@ -40,8 +38,7 @@ const JSON = [
   },
   {
     id: "0003",
-    type: "donut",
-    name: "Old Fashioned",
+    type: "Old Fashioned",
     ppu: 0.55,
     batters: {
       batter: [

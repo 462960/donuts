@@ -13,13 +13,23 @@ const useStyles = makeStyles({
   }
 });
 
-export default function UnitsView({ expanded, setExpanded }) {
+export default function UnitsView({ expanded, setExpanded, JSON }) {
   const classes = useStyles();
 
   const handleChange = (e, nodes) => {
     setExpanded(nodes);
   };
-  //   console.log(expanded);
+
+  const mapTreeItem = arr => {
+    return arr.map(x => (
+      <TreeItem key={x.id} nodeId={x.id} label={x.type}>
+        {x.topping.map(y => (
+          <TreeItem key={y.id} nodeId={y.id} label={y.type} />
+        ))}
+      </TreeItem>
+    ));
+  };
+
   return (
     <TreeView
       className={classes.root}
@@ -28,19 +38,7 @@ export default function UnitsView({ expanded, setExpanded }) {
       expanded={expanded}
       onNodeToggle={handleChange}
     >
-      <TreeItem nodeId="1" label="Applications">
-        <TreeItem nodeId="2" label="Calendar" />
-        <TreeItem nodeId="3" label="Chrome" />
-        <TreeItem nodeId="4" label="Webstorm" />
-      </TreeItem>
-      <TreeItem nodeId="5" label="Documents">
-        <TreeItem nodeId="6" label="Material-UI">
-          <TreeItem nodeId="7" label="src">
-            <TreeItem nodeId="8" label="index.js" />
-            <TreeItem nodeId="9" label="tree-view.js" />
-          </TreeItem>
-        </TreeItem>
-      </TreeItem>
+      {mapTreeItem(JSON)}
     </TreeView>
   );
 }
