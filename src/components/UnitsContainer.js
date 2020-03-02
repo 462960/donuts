@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import UnitsVew from "./UnitsView";
-import JSON from "./../helpers/JSON";
+import JSON from "./../helpers/JSON_deep";
+// import JSON from "./../helpers/JSON";
 
 import Button from "@material-ui/core/Button";
 
@@ -16,7 +17,10 @@ const UnitsContainer = () => {
 
   useEffect(() => {
     let arr = [];
-    JSON.map(x => arr.push(x.id));
+    JSON.map(x => {
+      arr.push(x.id);
+      x.butters && arr.push(x.butters.id);
+    });
     setItemsTree(arr);
   }, []);
 
