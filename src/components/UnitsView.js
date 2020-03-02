@@ -23,9 +23,32 @@ export default function UnitsView({ expanded, setExpanded, JSON }) {
   const mapTreeItem = arr => {
     return arr.map(x => (
       <TreeItem key={x.id} nodeId={x.id} label={x.type}>
-        {x.topping.map(y => (
-          <TreeItem key={y.id} nodeId={y.id} label={y.type} />
-        ))}
+        {x.butters ? (
+          <TreeItem
+            key={x.butters.id}
+            nodeId={x.butters.id}
+            label={x.butters.type}
+          >
+            {x.butters.butter.map(y => (
+              <TreeItem key={y.id} nodeId={y.id} label={y.type}></TreeItem>
+            ))}
+          </TreeItem>
+        ) : (
+          <div />
+        )}
+        {x.toppings ? (
+          <TreeItem
+            key={x.toppings.id}
+            nodeId={x.toppings.id}
+            label={x.toppings.type}
+          >
+            {x.toppings.topping.map(y => (
+              <TreeItem key={y.id} nodeId={y.id} label={y.type}></TreeItem>
+            ))}
+          </TreeItem>
+        ) : (
+          <div />
+        )}
       </TreeItem>
     ));
   };

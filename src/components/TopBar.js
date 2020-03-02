@@ -38,7 +38,7 @@ export default function TopBar() {
             <GitHubIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Donut topping
+            Donut dressing
           </Typography>
         </Toolbar>
       </AppBar>

@@ -16,7 +16,11 @@ const UnitsContainer = () => {
 
   useEffect(() => {
     let arr = [];
-    JSON.map(x => arr.push(x.id));
+    JSON.map(x => {
+      arr.push(x.id);
+      x.butters && arr.push(x.butters.id);
+      x.toppings && arr.push(x.toppings.id);
+    });
     setItemsTree(arr);
   }, []);
 
