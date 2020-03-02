@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const linkGitHub = "https://github.com/462960/hawkWeather";
+const linkGitHub = "https://github.com/462960/donuts";
 
 export default function TopBar() {
   const classes = useStyles();
@@ -33,6 +33,7 @@ export default function TopBar() {
             color="inherit"
             aria-label="menu"
             href={linkGitHub}
+            target="blank"
           >
             <GitHubIcon />
           </IconButton>
